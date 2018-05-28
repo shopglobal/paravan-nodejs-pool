@@ -1,7 +1,7 @@
 {
   "pool_id": 0,
   "bind_ip": "0.0.0.0",
-  "hostname": "YOUR_POOL_IP",
+  "hostname": "128.199.42.21",
   "db_storage_path": "CHANGEME",
   "coin": "etnx",
   "mysql": {
