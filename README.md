@@ -1,3 +1,6 @@
+NEED CHANGE SOMETHING ON COINS FILE FROM MAINNET FILES! MAINNET WHEN PUBLISHED THEN I'LL CHANGE.
+
+
 Pool Design/Theory
 ==================
 The nodejs-pool is built around a small series of core daemons that share access to a single LMDB table for tracking of shares, with MySQL being used to centralize configurations and ensure simple access from local/remote nodes.  The core daemons follow:
