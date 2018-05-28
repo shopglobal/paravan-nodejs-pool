@@ -65,7 +65,7 @@ Setup Instructions
 
 Server Requirements
 -------------------
-* 4 Gb Ram (Graft Build will fail with <= 2GB)
+* 4 Gb Ram (ETNX Build will fail with <= 2GB)
 * 2 CPU Cores (with AES_NI)
 * 40 Gb SSD-Backed Storage
 * Clean and fresh Installation of Ubuntu 16.04
@@ -96,13 +96,13 @@ The following Script will install the Pool as a "Whole-in-1-System". All needed 
 * 	Su into our user `su pooldaemon`
 
 * 	Auto-Install Script: `curl -L https://github.com/freebet/electronero-nodejs-pool/raw/master/deployment/deploy.bash| bash`
-	This will to a complete initial setup including to compile all Graft binaries and will take a while!
+	This will to a complete initial setup including to compile all ETNX binaries and will take a while!
 	
 *   Log out and back in from the pool user to activate the npm settings. (As root, you need to be in `/home/pooldaemon` then `su pooldaemon`)
 
 * 	Check if everything has worked out:
 
-	- Check Daemon with: `/usr/local/src/GraftNetwork/build/release/bin/graftnoded status`
+	- Check Daemon with: `/usr/local/src/electronero/build/release/bin/electronerod status`
 	- Check RPC with: `curl -X POST http://127.0.0.1:18981/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"getblockcount"}' -H 'Content-Type: application/json'`
 	- Check Pool at `http://<your-ip-here>` (just check if Networkhashrate is shown. Then its fine.)
 
@@ -115,13 +115,13 @@ The following Script will install the Pool as a "Whole-in-1-System". All needed 
 ---------------
 The pool is designed to have a dual-wallet design, one which is a fee wallet, one which is the live pool wallet.  The fee wallet is the default target for all fees owed to the pool owner.  PM2 can also manage your wallet daemon, and that is the suggested run state.
 
-*	Generate your wallets using `/usr/local/src/GraftNetwork/build/release/bin/graft-wallet-cli`. This is the wallet of your pool.
+*	Generate your wallets using `/usr/local/src/electronero/build/release/bin/electronero-wallet-cli`. This is the wallet of your pool.
 *	Make sure to save your regeneration stuff!
 *	For the pool wallet, store the password in a file, the suggestion is ~/wallet_pass: `echo YOURPASSWORD > ~/wallet_pass`
 *	Change the mode of the file with chmod to 0400: `chmod 0400 ~/wallet_pass`
 
-*	Start the rpc-wallet using PM2: `pm2 start /usr/local/src/GraftNetwork/build/release/bin/graft-wallet-rpc -- --rpc-bind-port 18982 --password-file ~/wallet_pass --wallet-file <Your wallet name here> --disable-rpc-login --trusted-daemon`
-*	To test if the wallet-rpc is running try: `curl -X POST http://127.0.0.1:18982/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"getaddress"}' -H 'Content-Type: application/json'`
+*	Start the rpc-wallet using PM2: `pm2 start /usr/local/src/electronero/build/release/bin/electronero-wallet-rpc -- --rpc-bind-port ETNX_WALLET_RPC_PORT --password-file ~/wallet_pass --wallet-file <Your wallet name here> --disable-rpc-login --trusted-daemon`
+*	To test if the wallet-rpc is running try: `curl -X POST http://127.0.0.1:ETNX_WALLET_RPC_PORT/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"getaddress"}' -H 'Content-Type: application/json'`
 
 4. Modify SQL Settings
 ----------------------
