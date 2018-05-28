@@ -71,7 +71,7 @@ Server Requirements
 * Clean and fresh Installation of Ubuntu 16.04
 
 
-A known-working Hoster for this pool is Vultr: https://www.vultr.com/?ref=7097618
+A known-working Hoster for this pool is Digitalocean: https://m.do.co/c/2d7a72a752f3
 
 Pre-Deploy
 ----------
