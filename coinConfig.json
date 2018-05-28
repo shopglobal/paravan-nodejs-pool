@@ -1,0 +1,10 @@
+{
+"etnx": {
+    "funcFile": "./lib/coins/etnx.js",
+    "paymentFile": "./payment_systems/etnx.js",
+    "sigDigits": 100,
+    "name": "Electronero",
+    "mixIn": 12,
+    "shortCode": "ETNX"
+}
+}

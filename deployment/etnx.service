@@ -1,0 +1,13 @@
+[Unit]
+Description=Electronero Daemon
+After=network.target
+
+[Service]
+Type=forking
+GuessMainPID=no
+ExecStart=/usr/local/src/electronero/build/release/bin/electronerod --testnet --detach
+Restart=always
+User=etnxdaemon
+
+[Install]
+WantedBy=multi-user.target
