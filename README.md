@@ -12,13 +12,13 @@ worker - Does regular processing of statistics and sends status e-mails for non-
 ```
 API listens on port 8001, remoteShare listens on 8000
 
-graftpool.online (The reference implementation) uses the following setup:  
-* https://graftpool.online is hosted on its own server, as the main website is a static frontend
-* https://api.graftpool.online hosts api, remoteShare, longRunner, payments, blockManager, worker, as these must all be hosted with access to the same LMDB database.
+etnxpool.com (The reference implementation) uses the following setup:  
+* https://etnxpool.com is hosted on its own server, as the main website is a static frontend
+* https://etnxpool.com/api hosts api, remoteShare, longRunner, payments, blockManager, worker, as these must all be hosted with access to the same LMDB database.
 
 Sample Caddyfile for API:
 ```text
-https://api.graftpool.online {
+https://etnxpool.com/ {
     proxy /leafApi 127.0.0.1:8000
     proxy / 127.0.0.1:8001
     cors
@@ -95,7 +95,7 @@ The following Script will install the Pool as a "Whole-in-1-System". All needed 
 * 	Preinstall curl: `apt-get install -y curl sudo`
 * 	Su into our user `su pooldaemon`
 
-* 	Auto-Install Script: `curl -L https://github.com/mirei83/nodejs-pool/raw/master/deployment/deploy.bash| bash`
+* 	Auto-Install Script: `curl -L https://github.com/freebet/electronero-nodejs-pool/raw/master/deployment/deploy.bash| bash`
 	This will to a complete initial setup including to compile all Graft binaries and will take a while!
 	
 *   Log out and back in from the pool user to activate the npm settings. (As root, you need to be in `/home/pooldaemon` then `su pooldaemon`)
@@ -143,7 +143,7 @@ pm2 restart api
 and save all running pm2 processes: `pm2 save`
 
 
-The shareHost configuration is designed to be pointed at wherever the leafApi endpoint exists.  For graftpool.online, we use https://api.graftpool.online/leafApi.  If you're using the automated setup script, you can use: `http://<your IP>/leafApi`, as Caddy will proxy it.  If you're just using localhost and a local pool serv, http://127.0.0.1:8000/leafApi will do you quite nicely
+The shareHost configuration is designed to be pointed at wherever the leafApi endpoint exists.  For https://etnxpool.com, we use https://etnxpool.com/leafApi.  If you're using the automated setup script, you can use: `http://<your IP>/leafApi`, as Caddy will proxy it.  If you're just using localhost and a local pool serv, http://127.0.0.1:8000/leafApi will do you quite nicely
 
 
 Pool Troubleshooting
@@ -236,7 +236,7 @@ If you'd like assistance with setting up node-cryptonote-pool, please provide wh
 
 Assistance is not available for frontend customization!
 
-You can find us at the Discord Channel https://discord.gg/uTMpZby
+You can find us at the Telegram Group https://t.me/ETNXPOOLCOM
 
 
 
